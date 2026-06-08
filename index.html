@@ -244,7 +244,7 @@
     color:var(--ink-2); margin:8px 0 0; padding-top:10px; border-top:1px solid var(--rule);
   }
 
-  /* evidence toggle + detail */
+  /* detail toggle + detail */
   .ev-toggle{
     margin-top:12px; align-self:flex-start;
     display:inline-flex; align-items:center; gap:8px;
@@ -331,7 +331,7 @@
     .card{ box-shadow:none; padding:9px 10px; page-break-inside:avoid; }
     .card .idea{ font-size:9pt; }
     .node{ height:54px; }
-    /* show all evidence compactly in print */
+    /* show all detail compactly in print */
     .detail{ display:block !important; margin-top:8px; padding-top:8px; }
     .detail ul{ margin-bottom:7px; }
     .detail ul li{ font-size:8.5pt; padding:1px 0 1px 14px; }
@@ -392,7 +392,7 @@
       </button>
     </div>
     <div class="controls">
-      <button class="ctl" id="btn-expand">Expand all evidence</button>
+      <button class="ctl" id="btn-expand">Expand all</button>
       <button class="ctl" id="btn-reset" hidden="">Show all eras</button>
     </div>
   </div>
@@ -435,7 +435,7 @@
         <p class="theme">Music &amp; social consciousness - the cost of the symbol</p>
         <p class="headline"><span class="artist">Billie Holiday</span> - <span class="song">"Strange Fruit"</span></p>
         <p class="idea">When a song becomes a symbol, what does the symbol cost the singer?</p>
-        <button class="ev-toggle" aria-expanded="false" aria-controls="ev2"><span class="car" aria-hidden="true">▾</span><span class="lbl-closed">Evidence</span><span class="lbl-open">Hide evidence</span></button>
+        <button class="ev-toggle" aria-expanded="false" aria-controls="ev2"><span class="car" aria-hidden="true">▾</span><span class="lbl-closed">The case</span><span class="lbl-open">Hide</span></button>
         <div class="detail" id="ev2">
           <h4>Songs &amp; recordings</h4>
           <ul>
@@ -461,7 +461,7 @@
         <p class="theme">Live embodiment · Africana womanism</p>
         <p class="headline"><span class="artist">Nina Simone</span> - <span class="song">"Mississippi Goddam"</span></p>
         <p class="idea">In live performance, the body itself carries the testimony.</p>
-        <button class="ev-toggle" aria-expanded="false" aria-controls="ev3"><span class="car" aria-hidden="true">▾</span><span class="lbl-closed">Evidence</span><span class="lbl-open">Hide evidence</span></button>
+        <button class="ev-toggle" aria-expanded="false" aria-controls="ev3"><span class="car" aria-hidden="true">▾</span><span class="lbl-closed">The case</span><span class="lbl-open">Hide</span></button>
         <div class="detail" id="ev3">
           <h4>Songs &amp; recordings</h4>
           <ul>
@@ -488,7 +488,7 @@
         <p class="theme">Gospel and the movement</p>
         <p class="headline"><span class="artist">Sam Cooke</span> - <span class="song">"A Change Is Gonna Come"</span></p>
         <p class="idea">The church voice steps onto the movement's national stage.</p>
-        <button class="ev-toggle" aria-expanded="false" aria-controls="ev4"><span class="car" aria-hidden="true">▾</span><span class="lbl-closed">Evidence</span><span class="lbl-open">Hide evidence</span></button>
+        <button class="ev-toggle" aria-expanded="false" aria-controls="ev4"><span class="car" aria-hidden="true">▾</span><span class="lbl-closed">The case</span><span class="lbl-open">Hide</span></button>
         <div class="detail" id="ev4">
           <h4>Songs &amp; moments</h4>
           <ul>
@@ -515,7 +515,7 @@
         <p class="theme">Political consciousness · Black feminist listening · collective voice</p>
         <p class="headline"><span class="artist">Marvin Gaye</span> - <span class="song">"What's Going On"</span></p>
         <p class="idea">Soul turns private feeling into public, political consciousness.</p>
-        <button class="ev-toggle" aria-expanded="false" aria-controls="ev5"><span class="car" aria-hidden="true">▾</span><span class="lbl-closed">Evidence</span><span class="lbl-open">Hide evidence</span></button>
+        <button class="ev-toggle" aria-expanded="false" aria-controls="ev5"><span class="car" aria-hidden="true">▾</span><span class="lbl-closed">The case</span><span class="lbl-open">Hide</span></button>
         <div class="detail" id="ev5">
           <h4>Songs &amp; recordings</h4>
           <ul>
@@ -542,7 +542,7 @@
         <p class="theme">Babylon / captivity / return · Pan-African memory · Rastafari</p>
         <p class="headline"><span class="artist">Bob Marley</span> - <span class="song">"No Woman, No Cry"</span></p>
         <p class="idea">Diaspora reframes the question as captivity, memory, and return.</p>
-        <button class="ev-toggle" aria-expanded="false" aria-controls="ev6"><span class="car" aria-hidden="true">▾</span><span class="lbl-closed">Evidence</span><span class="lbl-open">Hide evidence</span></button>
+        <button class="ev-toggle" aria-expanded="false" aria-controls="ev6"><span class="car" aria-hidden="true">▾</span><span class="lbl-closed">The case</span><span class="lbl-open">Hide</span></button>
         <div class="detail" id="ev6">
           <h4>Songs &amp; recordings</h4>
           <ul>
@@ -570,7 +570,7 @@
 (function(){
   "use strict";
 
-  // ---- Evidence expand / collapse ----
+  // ---- Detail expand / collapse ----
   var toggles = Array.prototype.slice.call(document.querySelectorAll('.ev-toggle'));
   toggles.forEach(function(btn){
     btn.addEventListener('click', function(){
@@ -585,7 +585,7 @@
   var expandBtn = document.getElementById('btn-expand');
   function allOpen(){ return toggles.every(function(b){ return b.getAttribute('aria-expanded') === 'true'; }); }
   function syncExpandAllLabel(){
-    expandBtn.textContent = allOpen() ? 'Collapse all evidence' : 'Expand all evidence';
+    expandBtn.textContent = allOpen() ? 'Collapse all' : 'Expand all';
   }
   expandBtn.addEventListener('click', function(){
     var open = !allOpen();
